@@ -1,0 +1,20 @@
+{% extends 'movie/base.html' %}
+{% block bb %}
+<form action="{% url 'movie:update' movie.id %}">
+    <div class="card" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{movie.title}}</li>
+        <li class="list-group-item">{{movie.title_en}}</li>
+        <li class="list-group-item">{{movie.audience}}</li>
+        <li class="list-group-item">{{movie.open_date}}</li>
+        <li class="list-group-item">{{movie.genre}}</li>
+        <li class="list-group-item">{{movie.watch_grade}}</li>
+        <li class="list-group-item">{{movie.score}}</li>
+        <li class="list-group-item"><img src="{{movie.poster_url}}" alt="{{movie.title}}" style="width:260px; height:300px;"></li>
+        <li class="list-group-item">{{movie.description}}</li>
+      </ul>
+      <button type="button" class="btn btn-warning"><a href="{% url 'movie:edit' movie.id %}">수정하기</a></button>
+      <button type="button" class="btn btn-danger"><a href="{% url 'movie:delete' movie.id %}">삭제</a></button>
+    </div>
+</form>
+{% endblock %}

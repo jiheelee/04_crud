@@ -1,0 +1,18 @@
+{% extends 'movie/base.html' %}
+{% block bb %}
+    <a href="{% url 'movie:new' %}">새 영화 등록</a>
+    <div class="container">
+        <div class="row">
+            {% for movie in movies %}
+                <div class="card col-3" style="width: 18rem;">
+                  <div class="card-body">
+                    <img src="{{movie.poster_url}}" alt="{{movie.title}}" style="width:230px; height:300px;">
+                    <h5 class="card-title">{{movie.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{movie.score}}</h6>
+                    <a href="{% url 'movie:detail' movie.id %}" class="card-link">영화 정보 보기</a>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
